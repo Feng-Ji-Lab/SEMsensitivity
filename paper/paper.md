@@ -71,10 +71,10 @@ We use the `semfindr` package to identify data points that exert the most influe
 
 # Availability
 
-The R package ``SEMsensitivity`` is publicly available on [Github](https://github.com/Feng-Ji-Lab/SEM-dropping/SEMsensitivity). It could be installed and run by using the following commands:
+The R package ``SEMsensitivity`` is publicly available on [Github](https://github.com/Feng-Ji-Lab/SEMsensitivity). It could be installed and run by using the following commands:
 
 ``` r
-devtools::install_github("Feng-Ji-Lab/SEM-dropping/SEMsensitivity")
+devtools::install_github("Feng-Ji-Lab/SEMsensitivity")
 library(SEMsensitivity)
 ```
 
@@ -145,7 +145,7 @@ N <- nrow(df)
 signFactor <- ifelse(par_value >= 0, TRUE, FALSE)
 ```
 
-Call the function `SEMsensitivity` to do sensitivity analysis. 
+Call the function `SEMsensitivity` to do sensitivity analysis. The method can be specified by either method name or index.
 
 ``` r
 result_by_name <- SEMsensitivity(df, model, var_one, var_two, PAR, threshold, fit,

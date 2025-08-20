@@ -29,7 +29,7 @@ SEMsensitivity(
   measureTest = "cfi",
   fitThreshold = 0.9,
   highGood = TRUE,
-  method,
+  method = 2,
   ...
 )
 }
@@ -82,7 +82,7 @@ SEMsensitivity(
 
 \item{highGood}{A boolean indicating whether higher values of the fit measure are better. For instance, for CFI, this should be set to TRUE. Default is TRUE.}
 
-\item{method}{The method name or index specifying which test to run.}
+\item{method}{The method name or index specifying which test to run. Default is "Naive Method with Approximate Influence".}
 
 \item{...}{Other arguments.
 \describe{

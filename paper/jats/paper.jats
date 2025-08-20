@@ -50,8 +50,8 @@ University of Toronto, Toronto, Canada</institution>
 <author-notes>
 <corresp id="cor-1">* E-mail: <email>f.ji@utoronto.ca</email></corresp>
 </author-notes>
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2025-08-06">
-<day>6</day>
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2025-08-20">
+<day>20</day>
 <month>8</month>
 <year>2025</year>
 </pub-date>
@@ -272,9 +272,9 @@ a Creative Commons Attribution 4.0 International License (CC BY
   <title>Availability</title>
   <p>The R package <monospace>SEMsensitivity</monospace> is publicly
   available on
-  <ext-link ext-link-type="uri" xlink:href="https://github.com/Feng-Ji-Lab/SEM-dropping/SEMsensitivity">Github</ext-link>.
+  <ext-link ext-link-type="uri" xlink:href="https://github.com/Feng-Ji-Lab/SEMsensitivity">Github</ext-link>.
   It could be installed and run by using the following commands:</p>
-  <code language="r script">devtools::install_github(&quot;Feng-Ji-Lab/SEM-dropping/SEMsensitivity&quot;)
+  <code language="r script">devtools::install_github(&quot;Feng-Ji-Lab/SEMsensitivity&quot;)
 library(SEMsensitivity)</code>
   <sec id="example">
     <title>Example</title>
@@ -356,7 +356,8 @@ N &lt;- nrow(df)
 
 signFactor &lt;- ifelse(par_value &gt;= 0, TRUE, FALSE)</code>
     <p>Call the function <monospace>SEMsensitivity</monospace> to do
-    sensitivity analysis.</p>
+    sensitivity analysis. The method can be specified by either method
+    name or index.</p>
     <code language="r script">result_by_name &lt;- SEMsensitivity(df, model, var_one, var_two, PAR, threshold, fit,
 estimates, conc, int, par_value, max_final, N, signFactor,
 &quot;Naive Method with Exact Influence&quot;)

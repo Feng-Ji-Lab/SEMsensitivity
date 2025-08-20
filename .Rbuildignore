@@ -3,3 +3,4 @@
 ^LICENSE\.md$
 ^tests/testthat/test_HS_data\.R$
 ^tests/ori\.R$
+^paper$

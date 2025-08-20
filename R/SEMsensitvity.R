@@ -24,7 +24,7 @@
 #' @param measureTest The fit measurement name to be tested (e.g., "cfi", "tli", "rmsea"). Default is "cfi".
 #' @param fitThreshold The threshold of the fit measurement. For example, for CFI (measureTest = "cfi"), the threshold could be 0.9. Default is 0.9.
 #' @param highGood A boolean indicating whether higher values of the fit measure are better. For instance, for CFI, this should be set to TRUE. Default is TRUE.
-#' @param method The method name or index specifying which test to run.
+#' @param method The method name or index specifying which test to run. Default is "Naive Method with Approximate Influence".
 #' @param ... Other arguments.
 #' \describe{
 #'   \item{1: }{\code{"Naive Method with Exact Influence"}}
@@ -112,7 +112,7 @@
 SEMsensitivity <- function(df, model, var_one = NULL, var_two = NULL, PAR = NULL, threshold = 10, fit, estimates = NULL, conc = NULL, int = NULL, par_value = NULL, max_final, N, signFactor = NULL, equalCons = 0, calcMeth = NULL, ratio = NULL, adaptA = NULL, alpha = NULL,
                            maxTime = NULL, pruneNum = NULL,
                            measureTest = "cfi", fitThreshold = 0.9, highGood = TRUE,
-                           method, ...) {
+                           method = 2, ...) {
 
   # Match the method to the corresponding test function
   method_functions <- list(
