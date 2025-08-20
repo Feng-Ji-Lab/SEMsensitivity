@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.2 20190208//EN"
+                  "JATS-publishing1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="other">
+<front>
+<journal-meta>
+<journal-id></journal-id>
+<journal-title-group>
+<journal-title>Journal of Open Source Software</journal-title>
+<abbrev-journal-title>JOSS</abbrev-journal-title>
+</journal-title-group>
+<issn publication-format="electronic">2475-9066</issn>
+<publisher>
+<publisher-name>Open Journals</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="publisher-id">0</article-id>
+<article-id pub-id-type="doi">N/A</article-id>
+<title-group>
+<article-title><monospace>SEMsensitivity</monospace>: An R Package for
+Sensitivity Analysis in Structural Equation Modeling</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-3590-3408</contrib-id>
+<name>
+<surname>Zhou</surname>
+<given-names>Biying</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-2051-5453</contrib-id>
+<name>
+<surname>Ji</surname>
+<given-names>Feng</given-names>
+</name>
+<email>f.ji@utoronto.ca</email>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="corresp" rid="cor-1"><sup>*</sup></xref>
+</contrib>
+<aff id="aff-1">
+<institution-wrap>
+<institution>Department of Applied Psychology &amp; Human Development,
+University of Toronto, Toronto, Canada</institution>
+</institution-wrap>
+</aff>
+</contrib-group>
+<author-notes>
+<corresp id="cor-1">* E-mail: <email>f.ji@utoronto.ca</email></corresp>
+</author-notes>
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2025-08-06">
+<day>6</day>
+<month>8</month>
+<year>2025</year>
+</pub-date>
+<volume>¿VOL?</volume>
+<issue>¿ISSUE?</issue>
+<fpage>¿PAGE?</fpage>
+<permissions>
+<copyright-statement>Authors of papers retain copyright and release the
+work under a Creative Commons Attribution 4.0 International License (CC
+BY 4.0)</copyright-statement>
+<copyright-year>2022</copyright-year>
+<copyright-holder>The article authors</copyright-holder>
+<license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/4.0/">
+<license-p>Authors of papers retain copyright and release the work under
+a Creative Commons Attribution 4.0 International License (CC BY
+4.0)</license-p>
+</license>
+</permissions>
+<kwd-group kwd-group-type="author">
+<kwd>R</kwd>
+<kwd>Structural Equation Modeling</kwd>
+<kwd>Sensitivity Analysis</kwd>
+<kwd>Optimizing Algorithms</kwd>
+<kwd>Searching Algorithms</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="summary">
+  <title>Summary</title>
+  <p>The package, <monospace>SEMsensitivity</monospace>, addresses the
+  need for robust methods to validate the stability and reliability of
+  SEMs, particularly in light of the replication crisis in psychology
+  and social sciences. Traditional sensitivity analyses often fall short
+  in assessing the impact of individual data points on complex models.
+  <monospace>SEMsensitivity</monospace> overcomes these limitations by
+  providing tools to identify influential data points and evaluate their
+  effect on SEM paths. The package integrates with popular R packages
+  like <monospace>lavaan</monospace>, <monospace>dplyr</monospace>, and
+  <monospace>semfindr</monospace>, offering a user-friendly interface
+  and efficient computation. It employs various methods, including
+  Taylor series approximations and the Negamax search algorithm, to
+  iteratively remove data points and assess their influence on model
+  parameters. It is publicly available on GitHub and can be easily
+  installed and utilized by researchers to ensure the robustness and
+  reliability of their SEM models.</p>
+</sec>
+<sec id="statement-of-need">
+  <title>Statement of Need</title>
+  <p>In statistical analysis, ensuring the robustness of models is
+  significant, especially in the context of Structural Equation Modeling
+  (SEM). The replication crisis in psychology and the social sciences
+  highlights the critical need for methodologies that can validate the
+  stability and reliability of statistical findings. Traditional
+  sensitivity analyses often fall short in assessing the impact of
+  individual data points on the overall model conclusions, particularly
+  in complex, multi-dimensional datasets where influential observations
+  may not be readily apparent.</p>
+  <p>The R package <monospace>SEMsensitivity</monospace> addresses this
+  gap by providing a suite of tools specifically designed for performing
+  sensitivity analysis on SEMs. This package allows researchers to
+  determine which specific sample points need to be removed for a
+  particular path in the SEM model to change sign, thus assessing the
+  robustness of the model. By iteratively removing data points and
+  observing changes in model parameters,
+  <monospace>SEMsensitivity</monospace> offers a detailed view of how
+  individual observations influence the overall model, facilitating a
+  deeper understanding of model stability.</p>
+  <p>The importance of this package lies in its ability to streamline
+  and simplify the process of influence analysis for SEMs.
+  Traditionally, such analyses are computationally intensive and
+  challenging to perform, often requiring bespoke solutions that are not
+  readily accessible to all researchers.
+  <monospace>SEMsensitivity</monospace> integrates with popular R
+  packages such as <monospace>lavaan</monospace>,
+  <monospace>dplyr</monospace>, and <monospace>semfindr</monospace>,
+  providing a user-friendly interface and leveraging existing
+  computational tools to deliver efficient and accurate results.</p>
+  <p>By automating the detection of influential data points and
+  providing clear, interpretable outputs,
+  <monospace>SEMsensitivity</monospace> empowers researchers to make
+  informed decisions about data dropping and model robustness. This
+  capability is particularly crucial in fields where data integrity and
+  the reproducibility of results are under intense scrutiny. The package
+  not only enhances the methodological rigor of SEM analyses but also
+  contributes to the broader effort of improving transparency and
+  reliability in scientific research.</p>
+  <p>In summary, <monospace>SEMsensitivity</monospace> is a vital tool
+  for researchers conducting SEMs, offering a robust framework for
+  sensitivity analysis that is both accessible and computationally
+  efficient. Its development addresses a critical need in the current
+  research landscape, providing a practical solution to ensure the
+  robustness and reliability of statistical models.</p>
+</sec>
+<sec id="method">
+  <title>Method</title>
+  <p>The primary goal of <monospace>SEMsensitivity</monospace> is to
+  provide robust methods for sensitivity analysis in SEM. This package
+  includes multiple methods to determine the influence of individual
+  data points on SEM paths and fit indices. Each method iteratively
+  removes data points to identify those that significantly affect the
+  model’s parameters. Among these methods, one evaluates when a path
+  coefficient changes its direction, such as from positive to negative.
+  Additionally, another method is designed to monitor the model’s fit
+  indices, such as when the Comparative Fit Index (CFI) drops below a
+  threshold like 0.9, indicating a decline in model adequacy. These
+  methods provide a comprehensive assessment of how data points
+  influence both model parameters and fit, making the package suitable
+  for various scenarios and levels of computational complexity.</p>
+  <sec id="case-deletions-and-approximations-in-path-parameters">
+    <title>Case Deletions and Approximations in Path Parameters</title>
+    <p>The core functionality of <monospace>SEMsensitivity</monospace>
+    revolves around case deletions and approximations, allowing
+    researchers to assess the robustness of their SEM models by
+    systematically removing data points and observing the effects.
+    Following the ideas presented in
+    (<xref alt="Broderick et al., 2020" rid="ref-broderick2020automatic" ref-type="bibr">Broderick
+    et al., 2020</xref>), we employ Taylor series approximations to
+    efficiently compute influence scores. Thus, we implemented various
+    approaches to drop samples, listed in the table below.</p>
+    <table-wrap>
+      <table>
+        <colgroup>
+          <col width="50%" />
+          <col width="50%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Naive Method with Exact Influence</td>
+            <td>Remove a fixed percentage of samples (determined by the
+            exact influence) at a time and refit the model to observe
+            the change in the parameter of interest.</td>
+          </tr>
+          <tr>
+            <td>Naive Method with Approximate Influence</td>
+            <td>Remove a fixed percentage of samples (determined by the
+            approximate influence, see
+            (<xref alt="Broderick et al., 2020" rid="ref-broderick2020automatic" ref-type="bibr">Broderick
+            et al., 2020</xref>)) at a time and refit the model to
+            observe the change in the parameter of interest.</td>
+          </tr>
+          <tr>
+            <td>Specified Approximation Method</td>
+            <td>Determines when a specific path in a SEM model changes
+            sign by iteratively removing data points.</td>
+          </tr>
+          <tr>
+            <td>Simple Depth Method</td>
+            <td>Determines a specific path in a SEM model value changing
+            by removing samples iteratively, in which influences are
+            determined by naive method and outputs relevant
+            results.</td>
+          </tr>
+          <tr>
+            <td>Combined Method</td>
+            <td>Determines a specific path in a SEM model value changing
+            by removing samples iteratively, in which influences are
+            determined by both naive method and approximate method.</td>
+          </tr>
+          <tr>
+            <td>Negamax Search Algorithm</td>
+            <td>Utilizes a Negamax search algorithm to iteratively drop
+            data points and update the SEM.</td>
+          </tr>
+          <tr>
+            <td>Use Depth Method to Try to Switch Sign of Parameter</td>
+            <td>Uses a depth method to iteratively remove data points in
+            order to switch the sign of a specific path in a SEM.</td>
+          </tr>
+          <tr>
+            <td>Use Depth Method to Try to Switch Sign of Parameter</td>
+            <td>Uses a depth method combined with a Negamax search
+            algorithm to iteratively remove data points in order to
+            switch the sign of a specific path in a SEM.</td>
+          </tr>
+          <tr>
+            <td>Simulated Annealing Method</td>
+            <td>Uses the simulated annealing method to identify a SEM
+            model path value changing by removing samples
+            iteratively.</td>
+          </tr>
+          <tr>
+            <td>Particle Swarm Optimization (PSO)</td>
+            <td>Uses the PSO method to identify a SEM model path value
+            changing by removing samples iteratively.</td>
+          </tr>
+          <tr>
+            <td>Brute Search with Cut Method</td>
+            <td>To identify a SEM model path value changing by removing
+            samples iteratively.</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </sec>
+  <sec id="case-deletions-in-fit-indices">
+    <title>Case Deletions in Fit Indices</title>
+    <p>We use the <monospace>semfindr</monospace> package to identify
+    data points that exert the most influence on model fit indices. By
+    calculating the impact of individual cases, the package helps detect
+    points that cause significant changes to indices like the CFI or
+    RMSEA. Once the most influential points are identified, they can be
+    deleted in bulk or individually. Bulk deletion allows for the
+    removal of a specified number of cases at once, enabling quick
+    evaluation of whether the model fit becomes inadequate (e.g., CFI
+    dropping below 0.9). Alternatively, cases can be deleted one by one
+    to monitor the incremental impact on fit and determine when the
+    model fails to meet desired thresholds.</p>
+  </sec>
+</sec>
+<sec id="availability">
+  <title>Availability</title>
+  <p>The R package <monospace>SEMsensitivity</monospace> is publicly
+  available on
+  <ext-link ext-link-type="uri" xlink:href="https://github.com/Feng-Ji-Lab/SEM-dropping/SEMsensitivity">Github</ext-link>.
+  It could be installed and run by using the following commands:</p>
+  <code language="r script">devtools::install_github(&quot;Feng-Ji-Lab/SEM-dropping/SEMsensitivity&quot;)
+library(SEMsensitivity)</code>
+  <sec id="example">
+    <title>Example</title>
+    <p>We take the dataset <monospace>PoliticalDemocracy</monospace>
+    provided in <monospace>lavaan</monospace> as an example. First,
+    define a SEM and fit it with lavaan. Then, indicate the path of
+    interest and the two variables of interest. Then, run the
+    <monospace>SEMsensitivity</monospace> function and see the results.
+    The possible method names are shown below:</p>
+    <list list-type="bullet">
+      <list-item>
+        <p>Naive Method with Exact Influence</p>
+      </list-item>
+      <list-item>
+        <p>Naive Method with Approximate Influence</p>
+      </list-item>
+      <list-item>
+        <p>Specified Approximation Method</p>
+      </list-item>
+      <list-item>
+        <p>Simple Depth Method</p>
+      </list-item>
+      <list-item>
+        <p>Combined Method</p>
+      </list-item>
+      <list-item>
+        <p>Negamax Search Algorithm Function</p>
+      </list-item>
+      <list-item>
+        <p>Use Depth Method to Try to Switch Sign of Parameter</p>
+      </list-item>
+      <list-item>
+        <p>Use Depth Method to Try to Switch Sign of Parameter with
+        Negamax</p>
+      </list-item>
+    </list>
+    <p>Below is a sample code.</p>
+    <p>First, install all needed packages and import dataset.</p>
+    <code language="r script">library(lavaan)
+library(dplyr)
+library(semfindr)
+library(R.utils)
+library(SEMsensitivity)
+
+df &lt;- PoliticalDemocracy</code>
+    <p>State the model (same as the model in
+    <monospace>lavaan</monospace> package).</p>
+    <code language="r script">model &lt;- '
+  ind60 =~ x1 + x2 + x3
+  dem60 =~ y1 + y2 + y3 + y4
+  dem65 =~ y5 + y6 + y7 + y8
+  dem60 ~ ind60
+  dem65 ~ ind60 + dem60
+  y1 ~~ y5
+  y2 ~~ y4 + y6
+  y3 ~~ y7
+  y4 ~~ y8
+  y6 ~~ y8
+'</code>
+    <p>State the parameters and path of interest. Use the
+    <monospace>lavaan</monospace> package to calculate the initial path
+    parameters and extract them.</p>
+    <code language="r script">var_one &lt;- 'dem65'
+var_two &lt;- 'ind60'
+PAR &lt;- c(&quot;dem65~ind60&quot;)
+threshold &lt;- 10
+
+fit &lt;- sem(model, data = df)
+summary(fit)
+
+estimates &lt;- parameterEstimates(fit)
+
+conc &lt;- data.frame(lhs = estimates$lhs, rhs = estimates$rhs, est = estimates$est)
+int &lt;- conc %&gt;% filter(lhs == var_one &amp; rhs == var_two)
+par_value &lt;- int$est
+
+max_final &lt;- ceiling(threshold * nrow(df) / 100)
+N &lt;- nrow(df)
+
+signFactor &lt;- ifelse(par_value &gt;= 0, TRUE, FALSE)</code>
+    <p>Call the function <monospace>SEMsensitivity</monospace> to do
+    sensitivity analysis.</p>
+    <code language="r script">result_by_name &lt;- SEMsensitivity(df, model, var_one, var_two, PAR, threshold, fit,
+estimates, conc, int, par_value, max_final, N, signFactor,
+&quot;Naive Method with Exact Influence&quot;)
+summary(result_by_name)
+
+result_by_index &lt;- SEMsensitivity(df, model, var_one, var_two, PAR, threshold, fit,
+estimates, conc, int, par_value, max_final, N, signFactor, 1)
+summary(result_by_index)</code>
+    <p>After running this, we can see the result as shown below. It
+    shows the path of interest, original value, changed parameter value
+    and the dropped samples indices list.</p>
+    <preformat>Summary of SEM sensitivity analysis result: 
+Method Name: Naive exact method 
+Path: dem65~ind60 
+Original Value: 0.572336 
+Original Number of Samples: 75 
+Drop Points Percentage: 10 
+Dropped Number of Samples: 8 
+New Parameter Value: 0.076319 
+drop points list: 
+[1] 30 38  2 47 36 14 53 26</preformat>
+    <p>We also provide an example of fit indices changing from a
+    good-fit model to an inadequate model.</p>
+    <code language="r script">fit_result &lt;- SEMsensitivity(df, model, fit = fit, max_final = max_final, N = N, measureTest = &quot;cfi&quot;, fitThreshold = 0.9, highGood = TRUE, method = 10)
+summary(fit_result)</code>
+    <p>The result is shown below:</p>
+    <preformat>Method Name:  Use depth method to try to drop fit measure below threshold 
+Original Fit Value:  0.9954 
+Final Fit Value After Dropping Points:  0.8823 
+Number of Data Points Dropped:  19 
+Difference Between Original Fit and Threshold:  0.0954 
+Cumulative Drop in Fit Value:  0.0963 
+Dropped Points:  74, 41, 12, 69, 63, 45, 66, 36, 18, 56, 53, 2, 59, 53, 4, 12, 53, 16, 5 </preformat>
+    <p>It provides the original fit value, and the changed fit value
+    after dropping points, number of points dropped, and a list of
+    indices of dropped points list.</p>
+  </sec>
+</sec>
+</body>
+<back>
+<ref-list>
+  <ref id="ref-broderick2020automatic">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Broderick</surname><given-names>Tamara</given-names></name>
+        <name><surname>Giordano</surname><given-names>Ryan</given-names></name>
+        <name><surname>Meager</surname><given-names>Rachael</given-names></name>
+      </person-group>
+      <article-title>An automatic finite-sample robustness metric: When can dropping a little data make a big difference?</article-title>
+      <source>arXiv preprint arXiv:2011.14999</source>
+      <year iso-8601-date="2020">2020</year>
+    </element-citation>
+  </ref>
+</ref-list>
+</back>
+</article>

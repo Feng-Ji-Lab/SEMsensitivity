@@ -1,0 +1,26 @@
+Package: SEMsensitivity
+Title: SEM Sensitivity Analysis
+Version: 0.1.0
+Authors@R: 
+    c(
+    person("Feng", "Ji", , "f.ji@utoronto.ca", role = c("aut"),
+       comment = c(ORCID = "0000-0002-2051-5453")),
+    person("Biying", "Zhou", , "zby.zhou@mail.utoronto.ca", role = c("aut", "cre", "cph", "trl"),
+       comment = c(ORCID = "0000-0002-3590-3408"))
+    )
+Maintainer: Biying Zhou <zby.zhou@mail.utoronto.ca>
+Description: This package performs sensitivity analysis for Structural Equation Modeling (SEM). It determines which sample points need to be removed for the sign of a specific path in the SEM model to change, thus assessing the robustness of the model.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+    lavaan,
+    dplyr,
+    R.utils,
+    semfindr,
+    stats,
+    methods,
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
