@@ -3,9 +3,9 @@ Title: SEM Sensitivity Analysis
 Version: 0.1.0
 Authors@R: 
     c(
-    person("Feng", "Ji", , "f.ji@utoronto.ca", role = c("aut"),
+    person("Feng", "Ji", , "f.ji@utoronto.ca", role = c("aut", "cre"),
        comment = c(ORCID = "0000-0002-2051-5453")),
-    person("Biying", "Zhou", , "zby.zhou@mail.utoronto.ca", role = c("aut", "cre", "cph", "trl"),
+    person("Biying", "Zhou", , "zby.zhou@mail.utoronto.ca", role = c("aut"),
        comment = c(ORCID = "0000-0002-3590-3408"))
     )
 Maintainer: Biying Zhou <zby.zhou@mail.utoronto.ca>
