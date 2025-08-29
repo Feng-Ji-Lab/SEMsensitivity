@@ -49,21 +49,21 @@ The primary goal of `SEMsensitivity` is to provide robust methods for sensitivit
 
 ## Case Deletions and Approximations in Path Parameters
 
-The core functionality of `SEMsensitivity` revolves around case deletions and approximations, allowing researchers to assess the robustness of their SEM models by systematically removing data points and observing the effects. Following the ideas presented in [@broderick2020automatic], we employ Taylor series approximations to efficiently compute influence scores. Thus, we implemented various approaches to drop samples, listed in the table below. 
+The core functionality of `SEMsensitivity` revolves around case deletions and approximations, allowing researchers to assess the robustness of their SEM models by systematically removing data points and observing the effects. Following the ideas presented in [@broderick2020automatic], we employ Taylor series approximations to efficiently compute influence scores. Thus, we implemented various approaches to drop samples, listed in the table below. Our methods can determine the value or sign change of a specific path by dropping some of the samples. 
 
-| Method | Description |
-|----------|----------|
-| Naive Method with Exact Influence | Remove a fixed percentage of samples (determined by the exact influence) at a time and refit the model to observe the change in the parameter of interest. |
-|Naive Method with Approximate Influence | Remove a fixed percentage of samples (determined by the approximate influence, see [@broderick2020automatic]) at a time and refit the model to observe the change in the parameter of interest. |
-|Specified Approximation Method|Determines when a specific path in a SEM model changes sign by iteratively removing data points.|
-| Simple Depth Method| Determines a specific path in a SEM model value changing by removing samples iteratively, in which influences are determined by naive method and outputs relevant results. |
-| Combined Method | Determines a specific path in a SEM model value changing by removing samples iteratively, in which influences are determined by both naive method and approximate method.|
-| Negamax Search Algorithm | Utilizes a Negamax search algorithm to iteratively drop data points and update the SEM.|
-|Use Depth Method to Try to Switch Sign of Parameter|Uses a depth method to iteratively remove data points in order to switch the sign of a specific path in a SEM.|
-|Use Depth Method to Try to Switch Sign of Parameter|Uses a depth method combined with a Negamax search algorithm to iteratively remove data points in order to switch the sign of a specific path in a SEM.|
-|Simulated Annealing Method|Uses the simulated annealing method to identify a SEM model path value changing by removing samples iteratively.|
-|Particle Swarm Optimization (PSO)|Uses the PSO method to identify a SEM model path value changing by removing samples iteratively.|
-|Brute Search with Cut Method|To identify a SEM model path value changing by removing samples iteratively.|
+| Method | Description | Path Change Type |
+|----------|----------|-------------|
+| Naive Method with Exact Influence | Remove a fixed percentage of samples (determined by the exact influence) at a time and refit the model to observe the change in the parameter of interest. | Value Change
+|Naive Method with Approximate Influence | Remove a fixed percentage of samples (determined by the approximate influence, see [@broderick2020automatic]) at a time and refit the model to observe the change in the parameter of interest. | Value Change
+|Specified Approximation Method|Determines when a specific path in a SEM model changes sign by iteratively removing data points.| Sign Change
+| Simple Depth Method| Determines a specific path in a SEM model value changing by removing samples iteratively, in which influences are determined by naive method and outputs relevant results. | Value Change
+| Combined Method | Determines a specific path in a SEM model value changing by removing samples iteratively, in which influences are determined by both naive method and approximate method.| Value Change
+| Negamax Search Algorithm | Utilizes a Negamax search algorithm to iteratively drop data points and update the SEM.| Value Change
+|Use Depth Method to Try to Switch Sign of Parameter|Uses a depth method to iteratively remove data points in order to switch the sign of a specific path in a SEM.| Sign Change
+|Use Depth Method to Try to Switch Sign of Parameter|Uses a depth method combined with a Negamax search algorithm to iteratively remove data points in order to switch the sign of a specific path in a SEM.| Sign Change
+|Simulated Annealing Method|Uses the simulated annealing method to identify a SEM model path value changing by removing samples iteratively.|  Value Change
+|Particle Swarm Optimization (PSO)|Uses the PSO method to identify a SEM model path value changing by removing samples iteratively.| Value Change
+|Brute Search with Cut Method|To identify a SEM model path value changing by removing samples iteratively.| Value Change
 
 ## Case Deletions in Fit Indices
 

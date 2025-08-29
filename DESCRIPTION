@@ -5,10 +5,10 @@ Authors@R:
     c(
     person("Feng", "Ji", , "f.ji@utoronto.ca", role = c("aut", "cre"),
        comment = c(ORCID = "0000-0002-2051-5453")),
-    person("Biying", "Zhou", , "zby.zhou@mail.utoronto.ca", role = c("aut"),
+    person("Biying", "Zhou", , "biying.zhou@psu.edu", role = c("aut"),
        comment = c(ORCID = "0000-0002-3590-3408"))
     )
-Maintainer: Biying Zhou <zby.zhou@mail.utoronto.ca>
+Maintainer: Biying Zhou <biying.zhou@psu.edu>
 Description: This package performs sensitivity analysis for Structural Equation Modeling (SEM). It determines which sample points need to be removed for the sign of a specific path in the SEM model to change, thus assessing the robustness of the model.
 License: MIT + file LICENSE
 Encoding: UTF-8
